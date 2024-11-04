@@ -73,31 +73,6 @@ function playGame() {
             console.log("please enter 'rock', 'paper' or 'scissors'")
         }
     }
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-
-    playRound(humanSelection, computerSelection);
 
     if (humanScore > computerScore) {
         console.log("You win!")
