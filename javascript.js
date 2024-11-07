@@ -1,13 +1,19 @@
+const WATER = "water";
+const GRASS = "grass";
+const FIRE = "fire";
+
+"https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif"
+
 function getComputerChoice() {
     let percentage = Math.random() * 100
     if (percentage <= 33) {
-        return "rock"
+        return WATER
     }
     if (percentage <= 66) {
-        return "paper"
+        return GRASS
     }
     else {
-        return "scissors"
+        return FIRE
     }
 }
 
@@ -16,24 +22,29 @@ let computerScore = 0;
 
 function playGame(humanSelection) {
     let computerSelection = getComputerChoice();
+    // change pictures to selections
+    changeImg(playerChoiceImg,humanSelection)
+    changeImg(computerChoiceImg,computerSelection)
 
     function playRound(humanChoice, computerChoice) {
 
-        if (humanChoice == "rock" && computerChoice == "rock" || humanChoice == "paper" && computerChoice == "paper" || humanChoice == "scissors" && computerChoice == "scissors") {
+        if (humanChoice == WATER && computerChoice == WATER || humanChoice == GRASS && computerChoice == GRASS || humanChoice == FIRE && computerChoice == FIRE) {
             showResult("It's a tie, you both chose " + humanChoice)
         }
-        if (humanChoice == "rock" && computerChoice == "paper" || humanChoice == "paper" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "rock") {
+        if (humanChoice == WATER && computerChoice == GRASS || humanChoice == GRASS && computerChoice == FIRE || humanChoice == FIRE && computerChoice == WATER) {
             scoreComputer();
-            showResult("You lose, " + computerChoice + " beats " + humanChoice)
+            showResult("You lose, " + computerChoice + " is super effective against " + humanChoice)
         }
-        if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper" && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper") {
+        if (humanChoice == WATER && computerChoice == FIRE || humanChoice == GRASS && computerChoice == WATER || humanChoice == FIRE && computerChoice == GRASS) {
             scorePlayer();
-            showResult("You win, " + humanChoice + " beats " + computerChoice)
+            showResult("You win, " + humanChoice + " is super effective against " + computerChoice)
         }
 
     }
     playRound(humanSelection, computerSelection);
 }
+
+
 
 function showResult(resultRound) {
     const divResult = document.getElementById("result");
@@ -83,18 +94,34 @@ function announceWinner() {
     pWinner.textContent = winner;
 }
 
+function changeImg(imgElement, choice){
+    if (choice == FIRE) {
+        imgElement.src = "https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif";
+    }
+    if (choice == WATER) {
+        imgElement.src = "https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif";
+    }
+    if (choice == GRASS) {
+        imgElement.src = "https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif";
+    }
+}
+
 // UI
 const rockBtn = document.getElementById("rockBtn");
 rockBtn.addEventListener("click", () => {
-    playGame("rock");
+    playGame(WATER);
 });
 
 const paperBtn = document.getElementById("paperBtn");
 paperBtn.addEventListener("click", () => {
-    playGame("paper");
+    playGame(GRASS);
 });
 
 const scissorsBtn = document.getElementById("scissorsBtn");
 scissorsBtn.addEventListener("click", () => {
-    playGame("scissors");
+    playGame(FIRE);
 });
+
+const playerChoiceImg = document.getElementById("playerChoice");
+
+const computerChoiceImg = document.getElementById("computerChoice");

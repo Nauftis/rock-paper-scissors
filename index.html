@@ -4,21 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 
 <body>
-    <button id="rockBtn">Rock</button>
-    <button id="paperBtn">Paper</button>
-    <button id="scissorsBtn">Scissors</button>
+    <h1>Prepare for trouble</h1>
+
+    <h3 id="winner"></h3>
 
     <div id="result"></div>
 
-    <div class="score">Player: <div id="scorePlayer">0</div></div>
-    <div class="score">Computer: <div id="scoreComputer">0</div></div>
-
-    <p id="winner"></p>
-
+    <div class="choices">
+        <button><img id="playerChoice" src="https://img.pokemondb.net/sprites/black-white/anim/normal/ditto.gif"></button>
+        <button><img id="computerChoice" src="https://img.pokemondb.net/sprites/black-white/anim/normal/ditto.gif"></button>
+    </div>
+    
+        <div class="scoreContainer">
+        <div class="score">Player:
+            <div id="scorePlayer">0</div>
+        </div>
+        <div class="score">Computer:
+            <div id="scoreComputer">0</div>
+        </div>
+    </div>
+    
+    <div class="buttons">
+        <button id="rockBtn"><img src="https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif"></button>
+        <button id="paperBtn"><img src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif"></button>
+        <button id="scissorsBtn"><img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif"></button>
+    </div>
+    
     <script src="javascript.js"></script>
 </body>
 
