@@ -1,20 +1,23 @@
 body {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     margin: 0px;
-    background-color: #0d1529;
-    color: #f0f3fa;
+    background-color: #111827;
+    color:  #F9FAFB
 }
 
+h1 {
+    color: #ab98ff;
+}
 
-h1, #result, #winner {
+h1, #result, #winner, p {
     display: flex;
     justify-content: center;
 }
 
 h1 {
-    background-color: #162240;
+    background-color: #1F2937;
     padding: 0px;
     margin: 0px;
     height: 130px;
@@ -52,7 +55,7 @@ button {
     border-radius: 50%;
     width: 160px;
     height: 160px;
-    background-color: #162240;
+    background-color: #1F2937;
     border: none;
 }
 
